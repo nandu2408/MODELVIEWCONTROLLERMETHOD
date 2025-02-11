@@ -1,0 +1,56 @@
+
+<h1 class="header">products</h1>
+
+<% if(locals.lastVisit){ %>
+<div class="alert alert-primary" role="alert">
+ Last visit time is : <%= locals.lastVisit %>
+</div>
+<% } %>
+        <table class="table table-dark">
+            <thead>
+                <tr>
+                    <th scope="col">Id</th>
+                    <th scope="col">Name</th>
+                    <th scope="col">Description</th>
+                    <th scope="col">Price</th>
+                    <th scope="col">Image</th>
+                    <th scope="col">Actions</th>
+                </tr>
+            </thead>
+            <tbody>
+
+              <% products.forEach(product=>{ %>
+
+            
+              <tr>
+                <td> <%= product.id %> </td>
+                <td> <%= product.name %> </td>
+                <td> <%= product.description %> </td>
+                <td scope="col"> <%= product.price %> </td>
+               
+                <td><img src="<%= product.imageUrl %>" alt="atomic habits"
+                   
+                    ></td>
+
+                    <td><a href="/updateproduct/<%= product.id %> " class="btn btn-warning">Update</a>
+                    <!-- <a href="/deleteproduct/<%= product.id %> " class="btn btn-danger">Delete</a>
+
+                    
+
+                  --> 
+                <button class="btn btn-danger" onclick="deleteProduct('<%= product.id %>')">Delete</button>
+                </td>
+              </tr>
+             
+
+          <%  }) %>
+          
+
+             
+              
+              
+
+            </tbody>
+
+        </table>
+    
